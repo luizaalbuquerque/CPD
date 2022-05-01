@@ -1,0 +1,41 @@
+<%- include('partials/header.html') %>
+
+    <section class="noticia">
+        <div class="center">
+            <div class="single-news">
+                <h2><%= news.title %></h2>
+                <div class="autor-name">
+                    <span><%= news.author %></span>
+                </div>
+                <br />
+                <div><img style="max-width: 100%;" src="<%= news.image %>" /></div>
+                <br /> 
+                <p> <%- news.context %> </p>
+                <br />
+            </div>
+
+            <div class="most-read">
+                <h3>Most read</h3>
+                <div class="most-read-news">
+                    <% for(let i=0; i < posts.length; i++) { %>
+                    <div class="most-read-news-single">
+                        <img src="<%= postsTop[i].image %>" />
+                        <div class="text-most-read-single">
+                            <h4> <%= postsTop[i].title %></h4>
+                                <p><%- postsTop[i].context %> - <span style="font-size: 12px;font-weight: bold">
+                                        (<%-postsTop[i].views %>)</span>
+                                </p>
+                                <a href="<%= postsTop[i].slug %>">read more</a>
+                        </div>
+                    </div>
+                    <% } %>
+                </div>>
+            </div>
+        </div>
+    </section>
+
+    <%- include('partials/footer.html') %>
+
+        </body>
+
+        </html>

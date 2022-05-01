@@ -1,0 +1,65 @@
+<%- include('partials/header.html') %>
+
+    <section class="noticia-destaque">
+        <div class="center">
+            <div class="img-destaque">
+                <div class="overlay-destaque"></div>
+                <div class="title-destaque-descricao">
+                    <!--feito em off o link aqui e adicionado nos estilos-->
+                    <a href="<%= posts[0].slug %>">
+                        <h2><%= posts[0].title %></h2>
+                    </a>
+                    <p><%- posts[0].context %>...</p>
+                </div>
+                <img src="<%= posts[0].image %>" />
+            </div>
+        </div>
+    </section>
+
+    <section class="other-news">
+        <div class="title-others-news">
+            <h2>Mosts Read</h2>
+            <br><br>
+            <div class="center">
+                <div class="last">
+                    <% for(let i=1; i < posts.length; i++) { %>
+                        <div class="box-last-single">
+                            <img src="<%= posts[i].image %>" />
+                            <div class="conteudo-noticia-single">
+                                <h3><%= posts[i].categorie %></h3>
+                                <h2><%= posts[i].title %></h2>
+                                <p><%- posts[i].context %></p>
+                                <a href="<%= posts[i].slug %>">read more</a>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+                <div class="most-read">
+                    <h3>Most read</h3>
+                    <div class="most-read-news">
+                        <% for(let i=0; i < postsTop.length; i++) { %>
+                            <div class="most-read-news-single">
+                                <img src="<%= postsTop[i].image %>" />
+                                <div class="text-most-read-single">
+                                    <h4>
+                                        <%= postsTop[i].categorie %>
+                                    </h4>
+                                    <p>
+                                        <%- postsTop[i].context %> - <span style="font-size: 12px;font-weight: bold">(
+                                                <%- postsTop[i].views %>)</span>
+                                    </p>
+                                    <a href="<%= postsTop[i].slug %>">Read more</a>
+                                </div>
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </section>
+
+    <%- include('partials/footer.html') %>
+
+    </body>
+
+ </html>
